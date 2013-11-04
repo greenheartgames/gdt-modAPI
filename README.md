@@ -2,9 +2,9 @@
 
 This is the official Modding API mod that ships with Game Dev Tycoon version 1.4.5+
 
-The goal of this mod is to provide convenient methods to the game for other mods.
+It is a set of [add-on methods and documentation](https://github.com/greenheartgames/gdt-modAPI/wiki "Wiki") to make the implementation of other mods easier.
 
-Pull requests more than welcome.
+Pull requests are more than welcome.
 
 ##Wiki
 
