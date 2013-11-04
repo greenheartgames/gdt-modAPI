@@ -9,9 +9,7 @@
 			audienceWeightings: [0.9, 1, 0.7]  //audienceWeightings (see documentation for details)
 		}
 
-		additional option property missionOverrides. Example:
-
-
+		additional option property missionOverrides. see wiki for example and explanation.
 	
 		id's must be unique
 		*/
@@ -40,7 +38,7 @@
 				if (t.missionOverrides) {
 					if (t.missionOverrides.length < 6 
 						|| t.missionOverrides.some(function (overrides) {
-							return overrides.length < 6
+							return overrides.length < 9
 								|| overrides.some(function (w) { return w > 1 || w < 0; });
 					})) {
 						Logger.LogInfo('skipping topic ({0}). invalid missionOverrides'.format(t.id));
