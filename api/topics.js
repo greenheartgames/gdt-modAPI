@@ -21,36 +21,19 @@
 		//filter out invalid topics
 		for (var i = 0; i < values.length; i++) {
 			var t = values[i];
-			//check must-have properties
-			if (t.id && t.name && t.genreWeightings && t.audienceWeightings) {
-				if (Topics.topics.some(function (t2) { return t2.id == t.id; })) {
-					Logger.LogInfo('skipping topic ({0}). topic with id already present'.format(t.id));
-					continue;
-				}
-				if (t.genreWeightings.length < 6
-					|| t.genreWeightings.some(function (w) { return w > 1 || w < 0; })) {
-					Logger.LogInfo('skipping topic ({0}). invalid genreWeightings'.format(t.id));
-					continue;
-				}
-				if (t.audienceWeightings.length < 3
-					|| t.audienceWeightings.some(function (w) { return w > 1 || w < 0; })) {
-					Logger.LogInfo('skipping topic ({0}). invalid audienceWeightings'.format(t.id));
-					continue;
-				}
-				if (t.missionOverrides) {
-					if (t.missionOverrides.length < 6 
-						|| t.missionOverrides.some(function (overrides) {
-							return overrides.length < 6
-								|| overrides.some(function (w) { return w > 1 || w < 0; });
-					})) {
-						Logger.LogInfo('skipping topic ({0}). invalid missionOverrides'.format(t.id));
-						continue;
-					}
-				}
+			if (!(Checks.checkPropertiesPresent(t, ['name', 'id', 'genreWeightings', 'audienceWeightings'])
+				&& Checks.checkAudienceWeightings(t.audienceWeightings)
+				&& Checks.checkGenreWeightings(t.genreWeightings)
+				&& Checks.checkUniqueness(t, 'id', Topics.topics)))
+				continue;
 
-				//add topic to game.
-				Topics.topics.push(t);
+			if (t.missionOverrides
+				&& !Checks.checkMissionOverrides(t.missionOverrides)) {
+				continue;
 			}
+
+			//add topic to game.
+			Topics.topics.push(t);
 		}
 	};
 })();
