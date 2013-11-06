@@ -6,9 +6,11 @@
 
 		//Examples.addTopic();
 		//Examples.addPlatform();
+		//Examples.addEvent();
 	};
 
 	requireLoad(['mods/gdt-modAPI/helpers/checks.js',
+	'mods/gdt-modAPI/api/persistence.js',
 	'mods/gdt-modAPI/api/events.js',
 	'mods/gdt-modAPI/api/platforms.js',
 	'mods/gdt-modAPI/api/topics.js',
