@@ -2,9 +2,18 @@ var Checks = {};
 (function () {
 	//helper methods to perform common checks
 
+	Checks.error = function (m) {
+		try {
+			throw new Error(m);
+		}
+		catch (e) {
+			Logger.LogModError(m, e, "A mod caused an error");
+		}
+	}
+
 	Checks.checkAudienceWeightings = function (w) {
 		if (!w || w.length < 3 || w.some(function (v) { return v < 0 || v > 1; })) {
-			Logger.LogConsole('audience weigthing is invalid: {0}'.format(w));
+			Checks.error('audience weigthing is invalid: {0}'.format(w));
 			return false;
 		}
 		return true;
@@ -12,7 +21,7 @@ var Checks = {};
 
 	Checks.checkGenreWeightings = function (w) {
 		if (!w || w.length < 6 || w.some(function (v) { return v < 0 || v > 1; })) {
-			Logger.LogConsole('genre weigthing is invalid: {0}'.format(w));
+			Checks.error('genre weigthing is invalid: {0}'.format(w));
 			return false;
 		}
 		return true;
@@ -24,7 +33,7 @@ var Checks = {};
 				return overrides.length < 6
 					|| overrides.some(function (w) { return w > 1 || w < 0; });
 		})) {
-			Logger.LogConsole('invalid missionOverrides: {0}'.format(missionOverrides));
+			Checks.error('invalid missionOverrides: {0}'.format(missionOverrides));
 			return false;
 		}
 	};
@@ -42,7 +51,7 @@ var Checks = {};
 				}
 			}
 		}
-		Logger.LogConsole('date invalid: {0}'.format(date));
+		Checks.error('date invalid: {0}'.format(date));
 		return false;
 	};
 
@@ -58,7 +67,7 @@ var Checks = {};
 			if (!p || p.length < 1)
 				continue;
 			if (!obj.hasOwnProperty(p)) {
-				Logger.LogConsole('property not set on object: {0}'.format(p));
+				Checks.error('property not set on object: {0}'.format(p));
 				return false;
 			}
 		}
@@ -68,7 +77,7 @@ var Checks = {};
 	Checks.checkUniqueness = function (obj, prop, values) {
 		var unique = !values.some(function (v) { return v[prop] == obj[prop]; });
 		if (!unique) {
-			Logger.LogConsole('duplicate value for {0} found: {1}'.format(prop, obj[prop]));
+			Checks.error('duplicate value for {0} found: {1}'.format(prop, obj[prop]));
 		}
 		return unique;
 	};
