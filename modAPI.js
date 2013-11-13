@@ -7,6 +7,7 @@
 		//Examples.addTopic();
 		//Examples.addPlatform();
 		//Examples.addEvent();
+		//Examples.addResearch();
 	};
 
 	requireLoad(['mods/gdt-modAPI/helpers/checks.js',
@@ -14,6 +15,7 @@
 	'mods/gdt-modAPI/api/events.js',
 	'mods/gdt-modAPI/api/platforms.js',
 	'mods/gdt-modAPI/api/topics.js',
+	'mods/gdt-modAPI/api/research.js',
 	'mods/gdt-modAPI/examples/examples.js'
 	], ready);
 })();

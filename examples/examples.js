@@ -125,4 +125,18 @@
 
 		GDT.addEvent(myRandomEvent);
 	};
+
+	Examples.addResearch = function () {
+		GDT.addResearchItem(
+		{
+			id: "Swift Loading", //Must be unique
+			name: "Swift loading".localize(), //Display name
+			v: 4, //Tech level
+			canResearch: function (company) {
+				return LevelCalculator.getMissionLevel('Level Design') > 5 //The "Level Design" level has to be at least 6
+			},
+			category: "Level Design",
+			categoryDisplayName: "Level Design".localize()
+		});
+	};
 })();
