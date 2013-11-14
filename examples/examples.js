@@ -79,7 +79,7 @@
 					sourceId: eventId,//this is important, otherwise nothing will happen when the player selects an option.
 					header: "Billy, the kid".localize(),//granted, this is a silly header.
 					text: msg,
-					options: ["Talk to parents", "Ignore incident", "Invite over"]//maximum of three choices
+					options: ["Talk to parents".localize(), "Ignore incident".localize(), "Invite over".localize()]//maximum of three choices
 				});
 			},
 			complete: function (decision) {
@@ -93,7 +93,7 @@
 					//we create a new, simple notification to tell the outcome. no sourceId or options are necessary this time.
 					var n = new Notification({
 						header: "Billy, the kid".localize(),//keep the header consistent with the prior part of the story
-						text: "You talk to the parents about Billy's actions and they promise it won't happen again."
+						text: "You talk to the parents about Billy's actions and they promise it won't happen again.".localize()
 					});
 					n.adjustHype(5 + 10 * company.getRandom());//increase hype between 5 and 15.
 
@@ -104,7 +104,7 @@
 					//nothing happens at first, but in a few weeks Billy again breaks in...
 					var n = new Notification({
 						header: "Vanished documents".localize(),
-						text: "You were working on some intricate design documents the other day but now you can't find them anymore. Small foot prints on the floor suggest that someone might have taken them.\nUnfortunately you have to recreate the documents (-500 cr.) - This might have been Billy's work",
+						text: "You were working on some intricate design documents the other day but now you can't find them anymore. Small foot prints on the floor suggest that someone might have taken them.\nUnfortunately you have to recreate the documents (-500 cr.) - This might have been Billy's work".localize(),
 						weeksUntilFired: 1 + 2 * company.getRandom()
 					});
 					n.adjustCash(-500, "restoring documents");
@@ -114,7 +114,7 @@
 				if (decision === 2) {//invite him over
 					var n = new Notification({
 						header: "Billy, the kid".localize(),//keep the header consistent with the prior part of the story
-						text: "You invite Billy, his parents and a couple of other interested neighbours over and show them the game in-progress. The kids are super-excited and for weeks you hear them talk about it afterwards."
+						text: "You invite Billy, his parents and a couple of other interested neighbours over and show them the game in-progress. The kids are super-excited and for weeks you hear them talk about it afterwards.".localize()
 					});
 					n.adjustHype(15 + 25 * company.getRandom());//increase hype between 15 and 40
 					company.activeNotifications.addRange(n.split()); //since this notificaton should be shown immediately (not one second later) we insert it into activeNotifications. calling .split() ist just good practice in case we use {n} inside the notification.
