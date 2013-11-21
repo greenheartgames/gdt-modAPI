@@ -5,5 +5,5 @@
 	"author":"support@greenheartgames.com",
 	"url":"https://github.com/greenheartgames/gdt-modAPI",
 	"description" : "The Official Game Dev Tycoon Mod API which is commonly used by other mods.",
-	"main" : "./gdt-modAPI"
+	"main" : "./modAPI.js"
 }

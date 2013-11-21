@@ -74,9 +74,9 @@ var Checks = {};
 		return true;
 	};
 
-	Checks.checkUniqueness = function (obj, prop, values) {
+	Checks.checkUniqueness = function (obj, prop, values, ignoreError) {
 		var unique = !values.some(function (v) { return v[prop] == obj[prop]; });
-		if (!unique) {
+		if (!unique && !ignoreError) {
 			Checks.error('duplicate value for {0} found: {1}'.format(prop, obj[prop]));
 		}
 		return unique;

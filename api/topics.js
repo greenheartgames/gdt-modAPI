@@ -24,7 +24,7 @@
 			if (!(Checks.checkPropertiesPresent(t, ['name', 'id', 'genreWeightings', 'audienceWeightings'])
 				&& Checks.checkAudienceWeightings(t.audienceWeightings)
 				&& Checks.checkGenreWeightings(t.genreWeightings)
-				&& Checks.checkUniqueness(t, 'id', Topics.topics)))
+				&& Checks.checkUniqueness(t, 'id', Topics.topics, true)))
 				continue;
 
 			if (t.missionOverrides
