@@ -126,6 +126,18 @@
 		GDT.addEvent(myRandomEvent);
 	};
 
+	Examples.addMarketing = function () {
+		GDT.addMarketing(
+		{
+			id: "MagazineMarketing-1",
+			name: "Advertise in Magazines".localize(),
+			shortName: "Magazine News Article".localize("short name"),
+			description: "Write a news article in a magazine to introduce the game to the public.".localize(),
+			marketingFactor: 0.5,
+			cost: 100000
+		});
+	};
+	
 	Examples.addResearch = function () {
 		GDT.addResearchItem(
 		{
