@@ -8,6 +8,7 @@
 		//Examples.addPlatform();
 		//Examples.addEvent();
 		//Examples.addResearch();
+		//Examples.addMarketing();
 	};
 
 	var error = function () {
@@ -19,6 +20,7 @@
 	'mods/gdt-modAPI/api/platforms.js',
 	'mods/gdt-modAPI/api/topics.js',
 	'mods/gdt-modAPI/api/research.js',
+	'mods/gdt-modAPI/api/Marketing.js',
 	'mods/gdt-modAPI/examples/examples.js'
 	], ready, error);
 })();
