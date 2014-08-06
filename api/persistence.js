@@ -57,4 +57,13 @@
 			modData[id] = stores[id].data;
 		}
 	});
+
+	GDT.on(GDT.eventKeys.saves.newGame, function (e) {
+		for (var key in stores) {
+			if (stores.hasOwnProperty(key)) {
+				stores[key].data = {};
+			}
+		}
+	});
+
 })();

@@ -1,8 +1,3 @@
-###Game Dev Tycoon Mods
-
-For a list of mods and a FAQ about using them please head to our forum:
-http://forum.greenheartgames.com/t/official-mod-list/9140
-
 ###Official Game Dev Tycoon Modding API mod
 
 This is the official Modding API mod that ships with Game Dev Tycoon version 1.4.5+

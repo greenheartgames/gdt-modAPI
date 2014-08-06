@@ -12,7 +12,7 @@
 	};
 
 	Examples.addPlatform = function () {
-		var icon = './mods/gdt-modAPI/examples/img/greenheartOne.png';
+		var icon = GDT.getRelativePath() + '/examples/img/greenheartOne.png';
 		GDT.addPlatform(
 			{
 				id: 'Greenheart One',

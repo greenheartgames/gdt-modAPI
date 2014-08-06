@@ -36,6 +36,7 @@ var Checks = {};
 			Checks.error('invalid missionOverrides: {0}'.format(missionOverrides));
 			return false;
 		}
+		return true;
 	};
 
 	Checks.checkDate = function (date) {
