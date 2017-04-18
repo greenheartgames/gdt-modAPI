@@ -1,4 +1,4 @@
-###Official Game Dev Tycoon Modding API mod
+### Official Game Dev Tycoon Modding API mod
 
 This is the official Modding API mod that ships with Game Dev Tycoon version 1.5.0+
 
@@ -6,7 +6,7 @@ It is a set of [add-on methods and documentation](https://github.com/greenheartg
 
 Pull requests are more than welcome.
 
-##Wiki
+## Wiki
 
 Please check the official documentation at:
 
