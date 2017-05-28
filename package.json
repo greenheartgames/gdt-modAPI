@@ -1,6 +1,6 @@
 ﻿{
 	"id" : "gdt-modAPI",
-	"name" : "Game Dev Tycoon Mod API",
+	"name" : "gdt-modAPI",
 	"version":"0.1.2",
 	"author":"support@greenheartgames.com",
 	"url":"https://github.com/greenheartgames/gdt-modAPI",
