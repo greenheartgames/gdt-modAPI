@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
 
 	var checkPlatform = function (platform) {
 		if (!(Checks.checkPropertiesPresent(platform, ['id', 'name', 'startAmount', 'unitsSold', 'licencePrize', 'published', 'platformRetireDate', 'developmentCosts', 'genreWeightings', 'audienceWeightings', 'techLevel', 'iconUri'])

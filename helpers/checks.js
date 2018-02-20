@@ -1,4 +1,4 @@
-var Checks = {};
+﻿var Checks = {};
 (function () {
 	//helper methods to perform common checks
 

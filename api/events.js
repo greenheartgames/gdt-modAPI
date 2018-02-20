@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
 	GDT.addEvent = function (event) {
 		if (!Checks.checkPropertiesPresent(event, ['id'])
 			&& (event.notification || event.getNotification))

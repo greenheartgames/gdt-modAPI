@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
 	/* Format
 	{
 		id: "Better dialogues",
