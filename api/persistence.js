@@ -1,15 +1,7 @@
-﻿(function () {
+(function () {
 
 	var stores = {};
 
-	/*
-	provides data access to save game data and settings.
-	usage:
-
-	var store = GDT.getDataStore("myPluginId");
-	store.data["key"]=value; //save game specific settings
-	store.settings["key"]=value; //app-wide settings
-	*/
 	GDT.getDataStore = function (pluginId) {
 		if (stores.hasOwnProperty(pluginId))
 			return stores[pluginId];
@@ -30,31 +22,22 @@
 		return obj;
 	};
 
-	//set data property in all stores to modData[plugin-id] value when loading a save game.
+	var modData;
 	GDT.on(GDT.eventKeys.saves.loading, function (e) {
 		var data = e.data;
-		var modData = data['modData'];
-		if (!modData) {
-			modData = data.modData = {};
-		}
-		for (var id in modData) {//where item is the id of a plugin
-			if (modData.hasOwnProperty(id)) {
-				GDT.getDataStore(id).data = modData[id];
-			}
+		modData = data.modData = data.modData || {};
+		for (var id in modData) {
+			GDT.getDataStore(id).data = modData[id];
 		}
 	});
 
-	//set data property of all existing mod stores to modData[plugin-id] when saving a game.
 	GDT.on(GDT.eventKeys.saves.saving, function (e) {
 		var data = e.data;
-		var modData = data['modData'];
-		if (!modData) {
-			modData = data.modData = {};
-		}
+		modData = data.modData = data.modData || {};
 		for (var id in stores) {
-			if (!stores.hasOwnProperty(id))
-				continue;
-			modData[id] = stores[id].data;
+			if (id in stores) {
+				modData[id] = stores[id].data;
+			}
 		}
 	});
 
